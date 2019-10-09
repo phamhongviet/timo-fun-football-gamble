@@ -1,4 +1,4 @@
-import os
+import random
 
 player_list = '''Alan Barker
 Nguyen Thi Nguyet Que
@@ -21,30 +21,14 @@ Le Quoc Hung
 Nguyen Thi Hoang Nhung
 Tran Thien Thanh'''.split('\n')
 
-player_number = len(player_list)
+random.shuffle(player_list)
 
-random_list = [ i%2 for i in map(ord, str(os.urandom(player_number)))]
+n = len(player_list)//2
 
-r=0
-list_0 = []
-list_1 = []
-for p in player_list:
-    if len(list_0) >= player_number // 2:
-        list_1.append(p)
-    elif len(list_1) >= player_number // 2:
-        list_0.append(p)
-    elif random_list[r] == 0:
-        list_0.append(p)
-    elif random_list[r] == 1:
-        list_1.append(p)
-    else:
-#       na ni ?!
-        pass
-    r += 1
-
+print(player_list)
 print("VIET NAM:")
-for i in list_0:
+for i in player_list[:n]:
     print("\t{}".format(i))
 print("Not VIET NAM:")
-for i in list_1:
+for i in player_list[n:]:
     print("\t{}".format(i))
