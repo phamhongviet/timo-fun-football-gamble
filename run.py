@@ -25,7 +25,6 @@ random.shuffle(player_list)
 
 n = len(player_list)//2
 
-print(player_list)
 print("VIET NAM:")
 for i in player_list[:n]:
     print("\t{}".format(i))
